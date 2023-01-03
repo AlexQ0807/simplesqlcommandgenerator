@@ -8,7 +8,7 @@ class TestCommandGenerator(TestCase):
         table_name = "Customers"
         insert_items = {
             "CustomerName": "Cardinal",
-            "ContactName": "Tom B. Erichsen",
+            "ContactName": "Tom B. E'richsen",
             "Address": "Skagen 21",
             "City": "Stavanger",
             "PostalCode": "4006",
@@ -16,7 +16,7 @@ class TestCommandGenerator(TestCase):
         }
         cmd = CommandGenerator.create_insert_command(table_name=table_name, insert_items=insert_items)
         expected = "INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) " \
-                   "VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');"
+                   "VALUES ('Cardinal', 'Tom B. E\\'richsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');"
 
         print(cmd)
         print(expected)

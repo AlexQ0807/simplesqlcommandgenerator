@@ -114,7 +114,7 @@ class CommandGenerator:
             key_arr.append(k)
 
             if isinstance(v, str):
-                v = v.replace("'", "\'")
+                v = v.replace("'", "\\'")
                 value_arr.append("'{}'".format(v))
             else:
                 value_arr.append("{}".format(v))
