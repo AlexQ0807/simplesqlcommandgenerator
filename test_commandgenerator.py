@@ -16,7 +16,7 @@ class TestCommandGenerator(TestCase):
         }
         cmd = CommandGenerator.create_insert_command(table_name=table_name, insert_items=insert_items)
         expected = "INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) " \
-                   "VALUES ('Cardinal', 'Tom B. E\\'richsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');"
+                   "VALUES ('Cardinal', 'Tom B. E''richsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');"
 
         print(cmd)
         print(expected)
@@ -38,7 +38,7 @@ class TestCommandGenerator(TestCase):
                                                      set_items=set_items,
                                                      where_items=where_items)
 
-        expected = "UPDATE Customers SET ContactName = 'Alfred\\'s Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;"
+        expected = "UPDATE Customers SET ContactName = 'Alfred''s Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;"
 
         print(cmd)
         print(expected)
