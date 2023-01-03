@@ -65,9 +65,9 @@ class CommandGenerator:
         '''
         Example:
         table_cols = [
-            ['item', 'VARCHAR(255)'],
-            ['quantity', 'INT'],
-            ['price', 'DECIMAL(3,2)'],
+            ['item', 'VARCHAR(255)' , 'NOT NULL UNIQUE'],
+            ['quantity', 'INT', 'NOT NULL'],
+            ['price', 'DECIMAL(3,2)', 'NOT NULL'],
         ]
         :param table_name:
         :param table_cols:
@@ -83,7 +83,6 @@ class CommandGenerator:
             if len(table_col) > 2:
                 column_constraint = table_col[2]
                 command = "{} {}".format(command, column_constraint)
-                print(command)
 
             if ind < len(table_cols) - 1:
                 command += ","
