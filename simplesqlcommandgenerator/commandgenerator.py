@@ -1,4 +1,4 @@
-
+import json
 
 class CommandGenerator:
     @classmethod
@@ -98,6 +98,7 @@ class CommandGenerator:
         set_list = []
         for k, v in obj.items():
             if isinstance(v, str):
+                v = v.replace("'", "\\'")
                 set_list.append("{}='{}'".format(k, v))
             else:
                 set_list.append("{}={}".format(k, v))
@@ -113,11 +114,9 @@ class CommandGenerator:
             key_arr.append(k)
 
             if isinstance(v, str):
+                v = v.replace("'", "\'")
                 value_arr.append("'{}'".format(v))
             else:
                 value_arr.append("{}".format(v))
 
         return join_str.join(key_arr), join_str.join(value_arr)
-
-
-

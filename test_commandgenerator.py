@@ -26,7 +26,7 @@ class TestCommandGenerator(TestCase):
     def test_create_update_command(self):
         table_name = "Customers"
         set_items = {
-            "ContactName": "Alfred Schmidt",
+            "ContactName": "Alfred's Schmidt",
             "City": "Frankfurt",
         }
 
@@ -38,7 +38,7 @@ class TestCommandGenerator(TestCase):
                                                      set_items=set_items,
                                                      where_items=where_items)
 
-        expected = "UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;"
+        expected = "UPDATE Customers SET ContactName = 'Alfred\\'s Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;"
 
         print(cmd)
         print(expected)
